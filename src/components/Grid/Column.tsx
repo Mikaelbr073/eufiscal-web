@@ -13,7 +13,8 @@ type ColumnProps = {
 
 const Column: React.FC<ColumnProps> = ({
     children,
-}, props) => {
+    ...props
+}) => {
   return (
     <ColumnStyle {...props}>
         {children}

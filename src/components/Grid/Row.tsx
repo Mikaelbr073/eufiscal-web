@@ -5,13 +5,15 @@ import { Row as RowStyle } from './styles';
 
 type RowProps = {
     children: React.ReactNode;
+    gutter: number;
 }
 
 const Row: React.FC<RowProps> = ({
-    children
+    children,
+    ...props
 }) => {
   return (
-    <RowStyle>
+    <RowStyle {...props}>
         {children}
     </RowStyle>
   );
