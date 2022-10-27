@@ -6,18 +6,27 @@ export const Container = styled.div`
 
   .header {
     height: 96px;
-    background-color: red;
+    background-color: #FFF;
+
+    box-sizing: border-box;
+    border-bottom: 1px solid #F2F2F2;
+
+    display: flex;
+    align-items: center;
+
+
+    padding: 00 80px;
   }
 
   .container-main {
     display: flex;
 	flex-direction: row;
     background-color: yellow;
-    height: calc(100% - 96px);
+    max-height: calc(100% - 96px);
     /* height: 100%; */
-  justify-content: center;
-  align-items: stretch; // <-- stretch vertical (default value, can be omitted here)
-  align-content: center;
+    justify-content: center;
+    align-items: stretch;
+    align-content: center;
   }
 
   .mapa {
@@ -28,20 +37,29 @@ export const Container = styled.div`
   .section {
     background-color: #fff;
     width: 500px;
-    padding: 32px;
+    padding: 16px;
+    overflow-y: scroll;
+    border-top: 1px solid #F2F2F2;
   }
 
   .card {
     margin-bottom: 16px;
     display: flex;
     flex-direction: row;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
   }
 
   .card__imagem {
     background-color: beige;
     background: rgba(0, 0, 0, 0.49) 24%;
     border-radius: 8px;
-    height: 74px;
+    height: 80px;
     width: 128px;
     margin-right: 8px;
   }
@@ -50,6 +68,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
   }
 
   .card__subtitulo {
@@ -58,6 +77,7 @@ export const Container = styled.div`
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
+    margin-bottom: 8px;
     /* identical to box height */
 
 
@@ -70,6 +90,7 @@ export const Container = styled.div`
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;
+    margin-bottom: 8px;
     /* identical to box height */
 
 
@@ -83,10 +104,7 @@ export const Container = styled.div`
     padding: 3.66667px 7.33333px;
     gap: 12.22px;
 
-    width: 87.67px;
-    height: 22.33px;
-
     background: rgba(243, 36, 36, 0.19);
-    border-radius: 2.44444px;
+    border-radius: 4px;
   }
 `;
