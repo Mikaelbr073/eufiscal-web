@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+function getWidthGrid(value: number) {
+    if (!value) return;
+
+    let width = value / 12 * 100;
+
+    return `width: ${width}%;`;
+}
+
 export const Container = styled.div`
     max-width: 1360px;
     padding-right: 15px;
@@ -37,7 +45,11 @@ export const Row = styled.div`
 `;
 
 interface IColumn {
-    grid: number;
+    sm?: number;
+    md?: number;
+    lg?: number;
+    xl?: number;
+    xxl?: number;
   }
 
 export const Column = styled.div<IColumn>`
@@ -45,9 +57,24 @@ export const Column = styled.div<IColumn>`
     padding: .25rem;
     min-height: 1px;
     box-sizing: border-box;
-    width: 100;
 
-    @media only screen and (min-width: 768px) {
-        width: ${props => (props.grid ? props.grid / 12 * 100 : '8:33')}%;
+    @media (min-width: 576px) {
+        ${({ sm }) => sm && getWidthGrid(sm)}
+    }
+
+    @media (min-width: 768px) {
+        ${({ md }) => md && getWidthGrid(md)}
+    }
+
+    @media (min-width: 992px) {
+        ${({ lg }) => lg && getWidthGrid(lg)}
+    }
+
+    @media (min-width: 1200px) {
+        ${({ xl }) => xl && getWidthGrid(xl)}
+    }
+
+    @media (min-width: 1400px) {
+        ${({ xxl }) => xxl && getWidthGrid(xxl)}
     }
 `;

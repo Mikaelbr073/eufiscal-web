@@ -14,19 +14,9 @@ export default function Home() {
 
       <Container>
         <Row>
-          <Column grid={5}>grid 5</Column>
-          <Column grid={5}>grid 5</Column>
-          <Column grid={2}>grid 2</Column>
-        </Row>
-        <Row>
-          <Column grid={5}>grid 5</Column>
-          <Column grid={5}>grid 5</Column>
-          <Column grid={2}>grid 2</Column>
-        </Row>
-        <Row>
-          <Column grid={5}>grid 5</Column>
-          <Column grid={5}>grid 5</Column>
-          <Column grid={2}>grid 2</Column>
+          <Column sm={4} md={12} lg={6}>sm 6 / md 12 / lg 6</Column>
+          <Column sm={4} md={6} lg={6}>sm 6 / md 6 / lg 6</Column>
+          <Column sm={4} md={6} lg={12}>sm 12 / md 6 / lg 12</Column>
         </Row>
       </Container>
 

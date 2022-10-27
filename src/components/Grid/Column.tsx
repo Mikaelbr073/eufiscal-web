@@ -4,15 +4,18 @@ import { Column as ColumnStyle } from './styles';
 
 type ColumnProps = {
     children: React.ReactNode;
-    grid: number;
+    sm?: number;
+    md?: number;
+    lg?: number;
+    xl?: number;
+    xxl?: number;
 }
 
 const Column: React.FC<ColumnProps> = ({
     children,
-    grid
-}) => {
+}, props) => {
   return (
-    <ColumnStyle grid={grid}>
+    <ColumnStyle {...props}>
         {children}
     </ColumnStyle>
   );
