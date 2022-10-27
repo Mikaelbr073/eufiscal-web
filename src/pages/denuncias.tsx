@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Column from '../components/Grid/Column'
-import Container from '../components/Grid/Container'
 import Row from '../components/Grid/Row'
 import Header from '../components/Header'
 import HeroSection from '../components/HeroSection'
+import Mapa from '../components/Mapa'
 import styles from '../styles/Home.module.css'
+import { Container } from './styles'
 
 export default function Home() {
   return (
@@ -16,27 +17,126 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Container type='fluid'>
-        <Row gutter={16}>
-          
-          <Column sm={8} md={4} lg={8} xl={4} xxl={12}>
-            <Header />
-          </Column>
-          
-          <Column sm={8} md={4} lg={8} xl={4} xxl={9}>
-            
-          </Column>
-          
-          <Column sm={8} md={4} lg={8} xl={4} xxl={3}>
-            b
-          </Column>
-
-        </Row>
+      <Container>
+        <div className='header'>a</div>
+        <div className='container-main'>
+            <div className='mapa'>c</div>
+            <div className='section'>
+                <div className='card'>
+                    <div className="card__imagem"></div>
+                    <div className="card__meta">
+                        <div className="card__subtitulo">Lorem ipsum</div>
+                        <div className="card__titulo">Esgoto a céu aberto</div>
+                        <div className="card__categoria">saneamento</div>
+                    </div>
+                </div>
+                <div className='card'>
+                    <div className="card__imagem"></div>
+                    <div className="card__meta">
+                        <div className="card__subtitulo">Lorem ipsum</div>
+                        <div className="card__titulo">Esgoto a céu aberto</div>
+                        <div className="card__categoria">saneamento</div>
+                    </div>
+                </div>
+                <div className='card'>
+                    <div className="card__imagem"></div>
+                    <div className="card__meta">
+                        <div className="card__subtitulo">Lorem ipsum</div>
+                        <div className="card__titulo">Esgoto a céu aberto</div>
+                        <div className="card__categoria">saneamento</div>
+                    </div>
+                </div>
+                <div className='card'>
+                    <div className="card__imagem"></div>
+                    <div className="card__meta">
+                        <div className="card__subtitulo">Lorem ipsum</div>
+                        <div className="card__titulo">Esgoto a céu aberto</div>
+                        <div className="card__categoria">saneamento</div>
+                    </div>
+                </div>
+                <div className='card'>
+                    <div className="card__imagem"></div>
+                    <div className="card__meta">
+                        <div className="card__subtitulo">Lorem ipsum</div>
+                        <div className="card__titulo">Esgoto a céu aberto</div>
+                        <div className="card__categoria">saneamento</div>
+                    </div>
+                </div>
+                <div className='card'>
+                    <div className="card__imagem"></div>
+                    <div className="card__meta">
+                        <div className="card__subtitulo">Lorem ipsum</div>
+                        <div className="card__titulo">Esgoto a céu aberto</div>
+                        <div className="card__categoria">saneamento</div>
+                    </div>
+                </div>
+                <div className='card'>
+                    <div className="card__imagem"></div>
+                    <div className="card__meta">
+                        <div className="card__subtitulo">Lorem ipsum</div>
+                        <div className="card__titulo">Esgoto a céu aberto</div>
+                        <div className="card__categoria">saneamento</div>
+                    </div>
+                </div>
+                <div className='card'>
+                    <div className="card__imagem"></div>
+                    <div className="card__meta">
+                        <div className="card__subtitulo">Lorem ipsum</div>
+                        <div className="card__titulo">Esgoto a céu aberto</div>
+                        <div className="card__categoria">saneamento</div>
+                    </div>
+                </div>
+                <div className='card'>
+                    <div className="card__imagem"></div>
+                    <div className="card__meta">
+                        <div className="card__subtitulo">Lorem ipsum</div>
+                        <div className="card__titulo">Esgoto a céu aberto</div>
+                        <div className="card__categoria">saneamento</div>
+                    </div>
+                </div>
+                <div className='card'>
+                    <div className="card__imagem"></div>
+                    <div className="card__meta">
+                        <div className="card__subtitulo">Lorem ipsum</div>
+                        <div className="card__titulo">Esgoto a céu aberto</div>
+                        <div className="card__categoria">saneamento</div>
+                    </div>
+                </div>
+                <div className='card'>
+                    <div className="card__imagem"></div>
+                    <div className="card__meta">
+                        <div className="card__subtitulo">Lorem ipsum</div>
+                        <div className="card__titulo">Esgoto a céu aberto</div>
+                        <div className="card__categoria">saneamento</div>
+                    </div>
+                </div>
+                <div className='card'>
+                    <div className="card__imagem"></div>
+                    <div className="card__meta">
+                        <div className="card__subtitulo">Lorem ipsum</div>
+                        <div className="card__titulo">Esgoto a céu aberto</div>
+                        <div className="card__categoria">saneamento</div>
+                    </div>
+                </div>
+                <div className='card'>
+                    <div className="card__imagem"></div>
+                    <div className="card__meta">
+                        <div className="card__subtitulo">Lorem ipsum</div>
+                        <div className="card__titulo">Esgoto a céu aberto</div>
+                        <div className="card__categoria">saneamento</div>
+                    </div>
+                </div>
+                <div className='card'>
+                    <div className="card__imagem"></div>
+                    <div className="card__meta">
+                        <div className="card__subtitulo">Lorem ipsum</div>
+                        <div className="card__titulo">Esgoto a céu aberto</div>
+                        <div className="card__categoria">saneamento</div>
+                    </div>
+                </div>
+            </div>
+        </div>
       </Container>
-
-      {/* <footer className={styles.footer}>
-        
-      </footer> */}
     </div>
   )
 }
