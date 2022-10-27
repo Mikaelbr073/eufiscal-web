@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Container, Row } from '../components/Grid/styles'
+import { Column, Container, Row } from '../components/Grid/styles'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -13,9 +13,21 @@ export default function Home() {
       </Head>
 
       <Container>
-        <Row>1</Row>
-        <Row>2</Row>
-        <Row>3</Row>
+        <Row>
+          <Column grid={5}>grid 5</Column>
+          <Column grid={5}>grid 5</Column>
+          <Column grid={2}>grid 2</Column>
+        </Row>
+        <Row>
+          <Column grid={5}>grid 5</Column>
+          <Column grid={5}>grid 5</Column>
+          <Column grid={2}>grid 2</Column>
+        </Row>
+        <Row>
+          <Column grid={5}>grid 5</Column>
+          <Column grid={5}>grid 5</Column>
+          <Column grid={2}>grid 2</Column>
+        </Row>
       </Container>
 
       {/* <footer className={styles.footer}>
