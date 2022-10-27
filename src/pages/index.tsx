@@ -4,6 +4,7 @@ import Column from '../components/Grid/Column'
 import Container from '../components/Grid/Container'
 import Row from '../components/Grid/Row'
 import Header from '../components/Header'
+import HeroSection from '../components/HeroSection'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -15,11 +16,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Container type='fluid' margin={80}>
+      <Container type='fluid' margin={80} style={{
+        background: '#F5F7FF'
+      }}>
         <Row gutter={16}>
           
           <Column sm={8} md={4} lg={8} xl={4} xxl={12}>
             <Header />
+          </Column>
+          
+          <Column sm={8} md={4} lg={8} xl={4} xxl={12}>
+            <HeroSection />
           </Column>
 
           <Column sm={8} md={4} lg={8} xl={4} xxl={6}>
