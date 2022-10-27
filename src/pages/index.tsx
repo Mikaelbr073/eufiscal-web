@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { Container, Row } from '../components/Grid/styles'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -11,13 +12,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        Hello World
-      </main>
+      <Container>
+        <Row>1</Row>
+        <Row>2</Row>
+        <Row>3</Row>
+      </Container>
 
-      <footer className={styles.footer}>
+      {/* <footer className={styles.footer}>
         
-      </footer>
+      </footer> */}
     </div>
   )
 }

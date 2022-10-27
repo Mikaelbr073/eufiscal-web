@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container as ContainerStyle } from './styles';
 
-type GridProps = {
+type ContainerProps = {
     children: React.ReactNode;
 }
 
-const Grid: React.FC<GridProps> = ({
+const Container: React.FC<ContainerProps> = ({
     children,
 }) => {
-  return <Container>{children}</Container>;
+  return <ContainerStyle>{children}</ContainerStyle>;
 }
 
-export default Grid;
+export default Container;
