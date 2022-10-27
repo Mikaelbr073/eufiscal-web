@@ -110,8 +110,8 @@ export const Container = styled.div<IContainer>`
         ${({ type }) => getWidthContainer(type, 'xxl')}
     }
 
-    ${({ margin }) => margin ? `padding-right: ${margin}px;` : 'padding-right: 15px;'}
-    ${({ margin }) => margin ? `padding-left: ${margin}px;` : 'padding-left: 15px;'}
+    ${({ margin }) => margin ? `padding-right: ${margin}px;` : 'padding-right: 0px;'}
+    ${({ margin }) => margin ? `padding-left: ${margin}px;` : 'padding-left: 0px;'}
 
     margin-right: auto;
     margin-left: auto;

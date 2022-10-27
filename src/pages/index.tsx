@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Column from '../components/Grid/Column'
 import Container from '../components/Grid/Container'
 import Row from '../components/Grid/Row'
+import Header from '../components/Header'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -16,6 +17,11 @@ export default function Home() {
 
       <Container type='fluid' margin={80}>
         <Row gutter={16}>
+          
+          <Column sm={8} md={4} lg={8} xl={4} xxl={12}>
+            <Header />
+          </Column>
+
           <Column sm={8} md={4} lg={8} xl={4} xxl={6}>
             <div style={{
               width: '100%',
