@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   background-color: pink;
-  height: 100vh;
 
+  height: 100vh;
   display: flex;
   flex-direction: column;
 
@@ -27,6 +27,11 @@ export const Container = styled.div`
 
   .header__menu {
     display: none;
+  }
+
+  .header__logo img {
+    height: 40px;
+    width: 100px;
   }
 
   .header__menu-mobile > button {
@@ -57,9 +62,7 @@ export const Container = styled.div`
   }
 
   .mapa {
-      /* background-color: blue; */
-      width: 100%;
-      /* height: 100%; */
+    width: 100%;
   }
 
   .section {
@@ -89,7 +92,6 @@ export const Container = styled.div`
       height: 64px;
       padding: 00 32px;
       justify-content: flex-start;
-      /* display: flex; */
     }
 
     .container-main {
@@ -103,8 +105,6 @@ export const Container = styled.div`
     .header__menu {
       display: flex;
       flex-direction: row;
-      /* background-color: red; */
-      /* width: 100%; */
       flex: 1;
     }
 
@@ -126,10 +126,6 @@ export const Container = styled.div`
       background: rgba(136, 71, 241, 0.06);
       color: #CCCCCC;
       border: none;
-      /* outline-color: #764BF105; */
-
-      /* border: 1px solid #ced4da; */
-      /* outline: #764BF1; */
 
       margin-right: 16px;
     }
@@ -185,8 +181,6 @@ export const Container = styled.div`
       flex-direction: column;
     }
 
-
-
     .card {
       margin-bottom: 16px;
       display: flex;
@@ -223,8 +217,6 @@ export const Container = styled.div`
       font-size: 12px;
       line-height: 15px;
       margin-bottom: 8px;
-      /* identical to box height */
-
 
       color: #6D7788;
     }
@@ -236,8 +228,6 @@ export const Container = styled.div`
       font-size: 14px;
       line-height: 17px;
       margin-bottom: 8px;
-      /* identical to box height */
-
 
       color: #344055;
     }
@@ -296,5 +286,34 @@ export const Container = styled.div`
 
   }
 
+
+  //// modal-info
+
+  .modalinfo {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    background-color: papayawhip;
+  }
+  position: relative;
+  .Modal {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    background-color: papayawhip;
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rebeccapurple;
+  }
 
 `;
