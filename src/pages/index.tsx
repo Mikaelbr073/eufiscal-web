@@ -16,9 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Container type='fluid' margin={80} style={{
-        background: '#F5F7FF'
-      }}>
+      <Container type='fluid' margin={80}>
         <Row gutter={16}>
           
           <Column sm={8} md={4} lg={8} xl={4} xxl={12}>
