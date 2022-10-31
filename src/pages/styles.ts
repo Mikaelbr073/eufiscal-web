@@ -289,31 +289,5 @@ export const Container = styled.div`
 
   //// modal-info
 
-  .modalinfo {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    right: 40px;
-    bottom: 40px;
-    background-color: papayawhip;
-  }
-  position: relative;
-  .Modal {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    right: 40px;
-    bottom: 40px;
-    background-color: papayawhip;
-  }
-
-  .Overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rebeccapurple;
-  }
 
 `;

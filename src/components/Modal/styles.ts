@@ -91,24 +91,177 @@ export const Container = styled.div`
         display: flex;
         flex: 1;
         flex-direction: row;
+        overflow-y: overlay;
     }
 
     .content__image {
-        background-color: #EFEFEF;
+        background-color: #000000;
         flex: 1;
         margin-right: 16px;
         border-radius: 8px;
+        display: flex;
+        align-items: center;
     }
 
+    .content__image img {
+        width: 100%;
+        max-height: 100%;
+
+
+        object-fit: cover;
+    }
+
+
+
+
+
+
+
     .content__info {
-        background-color: #185adb;
+        /* background-color: #185adb; */
         flex: 2;
     }
 
+    .content__info-titulo {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 39px;
+        
+        color: #344055;
+        
+        margin: 0px;
+        margin-bottom: 16px;
+    }
+
+    .meta-content {
+        display: flex;
+        flex-direction: row;
+        
+        margin-bottom: 16px;
+    }
+
+    .meta-content__item {
+        margin-right: 8px;
+    }
+
+    .meta-content__item:last-child {
+        margin-right: 0px;
+    }
+
+    .meta-content__icone {
+        margin-right: 4px;
+        
+        color: #344055;
+    }
+
+    .meta-content__info {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+
+        color: #344055;
+    }
+
+    .content__descricao {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: #344055;
+    }
 
 
 
 
+    .line {
+        background-color: #EFEFEF;
+        width: 100%;
+        height: 1px;
+        margin: 16px 0px;
+    }
+
+
+
+
+
+
+
+    .historico {
+
+    }
+
+    .historico__item {
+        margin-bottom: 16px;
+    }
+
+    .historico__container-meta {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .historico__badge {
+        padding: 8px 16px;
+        margin-right: 16px;
+
+        border-radius: 8px;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .historico__badge--abertura {
+        background: rgba(118, 74, 241, 0.19);
+        border: 1px solid rgba(118, 74, 241, 0.48);
+        color: #764AF1;
+    }
+
+    .historico__badge--analise {
+        background: rgba(241, 194, 74, 0.19);
+        border: 1px solid rgba(241, 154, 74, 0.48);
+        color: #F19A4A;
+    }
+
+    .historico__badge--resolvido {
+        background: rgba(12, 144, 17, 0.19);
+        border: 1px solid rgba(12, 144, 17, 0.48);
+        color: #0C9111;
+    }
+
+    .historico__data {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+
+        color: #6B768A;
+    }
+
+
+    .historico__descricao {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: #344055;
+    }
 
 
 
