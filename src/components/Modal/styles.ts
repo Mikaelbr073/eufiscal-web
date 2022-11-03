@@ -13,6 +13,7 @@ export const Container = styled.div`
         left: 50%;
         transform: translate(-50%, -50%);
         position: absolute; 
+        z-index: 1000;
     }
 
     .container {
@@ -24,6 +25,7 @@ export const Container = styled.div`
         width: 80%;
         height: 90%;
         border-radius: 8px;
+        z-index: 1000;
     }
 
     .modal {

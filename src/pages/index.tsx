@@ -4,10 +4,26 @@ import Column from '../components/Grid/Column'
 import Container from '../components/Grid/Container'
 import Row from '../components/Grid/Row'
 import Header from '../components/Header'
+import Logo from '../../public/LOREMIPSUM.svg'
 import HeroSection from '../components/HeroSection'
 import styles from '../styles/Home.module.css'
+import { ContainerIndex } from './styles'
 
 export default function Home() {
+
+  return (
+    <ContainerIndex>
+      <div className='header'>
+        <div className="header__logo">
+            <Image alt='EuFiscal logo' src={Logo} />
+        </div>
+      </div>
+      <div className='container-section-hero'>
+        <HeroSection />
+      </div>
+    </ContainerIndex>
+  )
+
   return (
     <div>
       <Head>

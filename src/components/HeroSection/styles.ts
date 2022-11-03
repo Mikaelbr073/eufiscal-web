@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-    margin-bottom: 115px;
     padding: 64px;
     
     display: flex;
@@ -26,18 +25,3 @@ export const Mensagem = styled.span`
     width: 500px;
 `;
 
-export const ContainerInputPesquisar = styled.div`
-    width: 522px;
-    height: 77px;
-    background-color: blue;
-    border-radius: 22px;
-    background-color: #fff;
-    position: relative;
-    display: flex;
-    justify-self: center;
-    align-self: center;
-    bottom: -110px;
-    margin: auto;
-
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-`;

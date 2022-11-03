@@ -1,0 +1,182 @@
+{
+  "denuncias": [
+    {
+        "id": 0,
+        "titulo": "Lixo não recolhido 0",
+        "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "urlFoto": "https://images.unsplash.com/photo-1605600659908-0ef719419d41?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80",
+        "denunciaIrregular": false,
+        "nomeCategoria": "Lixo",
+        "categoriaId": 4,
+        "status": {
+          "abertura": {
+            "data": "2022-11-03T03:51:45.855Z",
+            "descricao": "Inicio da denuncia em lajedo - pe na categoria de lixo."
+          },
+          "analise": {
+            "data": "2022-11-05T03:51:45.855Z",
+            "descricao": "Denuncia foi analisada e aceita. Está aguardando a resposta do órgão responsável."
+          },
+          "resolvido": {
+            "data": "2022-11-18T03:51:45.855Z",
+            "descricao": "Denuncia vista por órgão responsável e o problema foi solucionado."
+          }
+        },
+        "cidade": "lajedo",
+        "estadoSigla": "PE",
+        "lat": -8.657914,
+        "lng": -36.329336
+    },
+    {
+      "id": 1,
+      "titulo": "Lixo não recolhido 1",
+      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "urlFoto": "https://images.unsplash.com/photo-1562077981-4d7eafd44932?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "denunciaIrregular": false,
+      "nomeCategoria": "Lixo",
+      "categoriaId": 4,
+      "status": {
+        "abertura": {
+          "data": "2022-11-03T03:51:45.855Z",
+          "descricao": "Inicio da denuncia em lajedo - pe na categoria de lixo."
+        },
+        "analise": {
+          "data": "2022-11-05T03:51:45.855Z",
+          "descricao": "Denuncia foi analisada e aceita. Está aguardando a resposta do órgão responsável."
+        },
+        "resolvido": {
+          "data": "2022-11-18T03:51:45.855Z",
+          "descricao": "Denuncia vista por órgão responsável e o problema foi solucionado."
+        }
+      },
+      "cidade": "lajedo",
+      "estadoSigla": "PE",
+      "lat": -8.657214,
+      "lng": -36.327336
+    },
+    {
+      "id": 2,
+      "titulo": "Lixo não recolhido 2",
+      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "urlFoto": "https://images.unsplash.com/photo-1617303331806-3d6b58e03241?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "denunciaIrregular": false,
+      "nomeCategoria": "Lixo",
+      "categoriaId": 4,
+      "status": {
+        "abertura": {
+          "data": "2022-11-03T03:51:45.855Z",
+          "descricao": "Inicio da denuncia em lajedo - pe na categoria de lixo."
+        },
+        "analise": {
+          "data": "2022-11-05T03:51:45.855Z",
+          "descricao": "Denuncia foi analisada e aceita. Está aguardando a resposta do órgão responsável."
+        },
+        "resolvido": {
+          "data": "2022-11-18T03:51:45.855Z",
+          "descricao": "Denuncia vista por órgão responsável e o problema foi solucionado."
+        }
+      },
+      "cidade": "lajedo",
+      "estadoSigla": "PE",
+      "lat": -8.655214,
+      "lng": -36.332336
+    },
+    {
+      "id": 3,
+      "titulo": "Lixo não recolhido 3",
+      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "urlFoto": "https://images.unsplash.com/photo-1588106329001-2362b7d964ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "denunciaIrregular": false,
+      "nomeCategoria": "Lixo",
+      "categoriaId": 4,
+      "status": {
+        "abertura": {
+          "data": "2022-11-03T03:51:45.855Z",
+          "descricao": "Inicio da denuncia em lajedo - pe na categoria de lixo."
+        },
+        "analise": {
+          "data": "2022-11-05T03:51:45.855Z",
+          "descricao": "Denuncia foi analisada e aceita. Está aguardando a resposta do órgão responsável."
+        },
+        "resolvido": {
+          "data": "2022-11-18T03:51:45.855Z",
+          "descricao": "Denuncia vista por órgão responsável e o problema foi solucionado."
+        }
+      },
+      "cidade": "lajedo",
+      "estadoSigla": "PE",
+      "lat": -8.659214,
+      "lng": -36.332336
+  }
+  ],
+  "cidades": [
+    {
+      "id": 0,
+      "nome": "Lajedo",
+      "estado": "Pernambuco",
+      "estadoSigla": "PE",
+      "lat": -8.657914,
+      "lng": -36.329336
+    },
+    {
+      "id": 1,
+      "nome": "Garanhuns",
+      "estado": "Pernambuco",
+      "estadoSigla": "PE",
+      "lat": -8.882434,
+      "lng": -36.496567
+    },
+    {
+      "id": 2,
+      "nome": "Caruaru",
+      "estado": "Pernambuco",
+      "estadoSigla": "PE",
+      "lat": -8.284547,
+      "lng": -35.969863
+    },
+    {
+      "id": 3,
+      "nome": "Recife",
+      "estado": "Pernambuco",
+      "estadoSigla": "PE",
+      "lat": -8.046658,
+      "lng": -34.877065
+    }
+  ],
+  "categorias": [
+    {
+      "id": 0,
+      "nome": "Saneamento"
+    },
+    {
+      "id": 1,
+      "nome": "Entulhos"
+    },
+    {
+      "id": 2,
+      "nome": "Energia"
+    },
+    {
+      "id": 3,
+      "nome": "Chuvas"
+    },
+    {
+      "id": 4,
+      "nome": "Lixo"
+    }
+  ],
+  "status": [
+    {
+      "id": 0,
+      "nome": "Resolvido"
+    },
+    {
+      "id": 1,
+      "nome": "Em analise"
+    },
+    {
+      "id": 2,
+      "nome": "Resolvido"
+    }
+  ]
+}

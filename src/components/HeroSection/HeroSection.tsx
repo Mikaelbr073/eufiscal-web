@@ -1,12 +1,21 @@
 import React from 'react';
+import Autocomplete from '../Autocomplete';
 
-import { Container, Mensagem, ContainerInputPesquisar } from './styles';
+import { Container, Mensagem } from './styles';
 
 const HeroSection: React.FC = () => {
   return (
     <Container>
         <Mensagem>Sua denúncia pode ser ouvida aqui!</Mensagem>
-        <ContainerInputPesquisar></ContainerInputPesquisar>
+        <Autocomplete
+          cidades={[
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ]}
+          />
     </Container>
   );
 }
