@@ -1,13 +1,21 @@
 import { AxiosInstance } from "axios";
+import { getQueryString } from "../../../utils/http";
+import { DenunciaFilter } from "../../application/filter/denuncia.filter";
 import { Denuncia } from "../../domain/entities/denuncia";
 import { DenunciaGateway } from "../../domain/gateways/denuncia.gateway";
 
 export class DenunciaHttpGateway implements DenunciaGateway {
     constructor(private http: AxiosInstance) {}
 
-    buscarTudo(): Promise<Denuncia[]> {
-        return this.http.get<Denuncia[]>("/denuncias").then(res =>
-            res.data.map(
+    buscarTudo(filter: DenunciaFilter): Promise<Denuncia[]> {
+
+        const query = getQueryString(filter.toJSON())
+
+        console.log(`/denuncias${query && '?' + query}`)
+
+        return this.http.get<Denuncia[]>(`/denuncias${query && '?' + query}`).then(res => {
+            console.log(res)
+            return res.data.map(
                 data => 
                     new Denuncia({
                         id: data.id,
@@ -24,6 +32,7 @@ export class DenunciaHttpGateway implements DenunciaGateway {
                         lng: data.lng,
                     })
             )
+        }
         );
     }
     buscarPorId(id: number): Promise<Denuncia> {

@@ -107,7 +107,7 @@ export const Container = styled.div`
     }
 
     .header__pesquisar {
-      flex: 1;
+      /* 
 
       height: 40px;
       padding: 0px 14px;
@@ -123,12 +123,30 @@ export const Container = styled.div`
       
       background: rgba(136, 71, 241, 0.06);
       color: #CCCCCC;
-      border: none;
-
+      border: none; */
+      flex: 1;
       margin-right: 16px;
     }
 
-    .header__pesquisar:focus {
+    .header__pesquisar input {
+      height: 40px;
+      padding: 0px 14px;
+
+      border: none;
+      border-radius: 4px;
+
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      
+      background: rgba(136, 71, 241, 0.06);
+      color: #CCCCCC;
+      border: none;
+    }
+
+    .header__pesquisar input:focus {
       color: #212529;
       background-color: #fff;
       border-color: #764bf1ba;

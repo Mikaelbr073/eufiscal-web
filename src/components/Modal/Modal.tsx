@@ -92,6 +92,17 @@ const Modal: React.FC<DenunciasProps> = ({ setIsOpen, denuncia }) => {
                             
                         </div>
                         <div className='line'></div>
+                        <div>
+
+                        <div>
+                            <input type="radio" id="analise" name="status" value="analise" />
+                            <label htmlFor="analise">Em analise</label>
+
+                            <input type="radio" id="resolvido" name="status" value="resolvido" />
+                            <label htmlFor="resolvido">Resolvido</label>
+                        </div>
+
+                        </div>
                     </div>
                 </div>
 

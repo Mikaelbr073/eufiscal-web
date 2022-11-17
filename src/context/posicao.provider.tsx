@@ -1,71 +1,60 @@
-import { createContext } from "react";
+import { createContext, useState, Dispatch, SetStateAction } from "react";
+import { Denuncia } from "../@core/domain/entities/denuncia";
 
 export type PosicaoContextType = {
-    ciddadeId: number;
+    cidadeId: number | null;
     cidade: string;
     estado: string;
     lat: number;
     lng: number;
     zoom: number;
-    atualizarPosicao: (posicao: {
-        ciddadeId: number;
-        cidade: string;
-        estado: string;
-        lat: number;
-        lng: number;
-        zoom: number;
-    }) => void;
+    denuncias: Denuncia[];
+    setDenuncias: Function;
+    setLat: Function;
+    setLng: Function;
+    setCidadeId: Function;
 }
 
 const defaultContext: PosicaoContextType = {
-    ciddadeId: 0,
+    cidadeId: 0,
     cidade: "",
     estado: "",
     lat: 0,
     lng: 0,
     zoom: 15,
-    atualizarPosicao: () => {},
+    denuncias: [],
+    setDenuncias: Function,
+    setLat: Function,
+    setLng: Function,
+    setCidadeId: Function,
 }
 
-export const PosicaoContext = createContext(defaultContext);
+export const PosicaoContext = createContext<PosicaoContextType>(defaultContext);
 
 export const PosicaoProvider = ({ children }) => {
 
-    // Posicao padrão
-    const ciddadeId = 0;
-    const cidade = "Lajedo";
-    const estado = "Pernambuco";
-    const lat = -8.657914;
-    const lng = -36.329336;
-    const zoom =  15;
-
-    const atualizarPosicao = (posicao: {
-        ciddadeId: number;
-        cidade: string;
-        estado: string;
-        lat: number;
-        lng: number;
-        zoom: number;
-    }) => {
-        const ciddadeId = posicao.ciddadeId;
-        const cidade = posicao.cidade;
-        const estado = posicao.estado;
-        const lat = posicao.lat;
-        const lng = posicao.lng;
-        const zoom =  posicao.zoom;
-    
-    }
+    const [denuncias, setDenuncias] = useState<Denuncia[]>([])
+    const [cidadeId, setCidadeId] = useState<number | null>(null)
+    const [cidade, setCidade] = useState<string>("Caruaru")
+    const [estado, setEstado] = useState<string>("Pernambuco")
+    const [lat, setLat] = useState<number>(-8.284547)
+    const [lng, setLng] = useState<number>(-35.969863)
+    const [zoom, setZoom] = useState<number>(15)
 
     return (
         <PosicaoContext.Provider
             value={{
+                cidadeId,
                 cidade,
-                ciddadeId,
                 estado,
                 lat,
                 lng,
                 zoom,
-                atualizarPosicao
+                denuncias,
+                setDenuncias,
+                setLat,
+                setLng,
+                setCidadeId
             }}
         >
             {children}
