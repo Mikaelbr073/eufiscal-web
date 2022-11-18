@@ -172,6 +172,34 @@ export const Container = styled.div`
       border-radius: 8px;
     }
 
+    .header__button {
+      height: 40px;
+      padding: 0px 14px;
+
+      border: none;
+      border-radius: 4px;
+
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+
+      background: #F3474717;
+      border: 1px solid transparent;
+      color: #F34747;
+      border-radius: 8px;
+    }
+
+    .header__select:hover {
+      cursor: pointer;
+    }
+
+    .header__button:hover {
+      cursor: pointer;
+      background: #F3474727;
+    }
+
     .header__container-select > .header__select {
       margin-right: 8px;
     }
@@ -390,3 +418,69 @@ export const ContainerIndex = styled.div`
     }
   }
 `;
+
+export const ContainerLogin = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+  .login__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .login__container > input,
+  .login__container > button {
+    margin-bottom: 8px;
+  }
+
+  .login__container > input:last-child,
+  .login__container > button:last-child {
+    margin-bottom: 0px;
+  }
+
+  input {
+      height: 40px;
+      padding: 0px 14px;
+
+      border: none;
+      border-radius: 4px;
+
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+
+      background: #FFFFFF;
+      border: 1px solid #F0F0F0;
+      border-radius: 8px;
+  }
+
+  button {
+      height: 40px;
+      padding: 0px 14px;
+
+      border: none;
+      border-radius: 4px;
+
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+
+      background: #8847F1;
+      border: 1px solid transparent;
+      color: #FFFFFF;
+      border-radius: 8px;
+  }
+
+  button:hover {
+    cursor: pointer;
+    background-color: #8847f1;
+  }
+`

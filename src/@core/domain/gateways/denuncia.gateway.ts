@@ -4,4 +4,5 @@ import { Denuncia } from "../entities/denuncia";
 export interface DenunciaGateway {
     buscarTudo(filter: DenunciaFilter): Promise<Denuncia[]>;
     buscarPorId(id: number): Promise<Denuncia>;
+    atualizarStatus(id: number): Promise<boolean>;
 }

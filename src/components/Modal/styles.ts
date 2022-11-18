@@ -317,4 +317,53 @@ export const Container = styled.div`
 
 
 
+
+
+
+    .action-bar {
+    }
+    
+    .action-bar > .action-bar__button {
+      margin-right: 8px;
+    }
+
+    .action-bar > .action-bar__button:last-child {
+    margin-right: 0px;
+    }
+
+    .action-bar__button {
+        height: 39px;
+        padding: 11px 12px;
+
+        border-radius: 5px;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+
+    }
+
+    .action-bar__button:hover {
+        cursor: pointer;
+    }
+
+    .action-bar__button--desativado {
+        background: #F3F3F3;
+        border: 1px solid #E2E2E2;
+        color: #788AA8;
+    }
+
+    .action-bar__button--desativado:hover {
+        cursor: not-allowed;
+    }
+
+    .action-bar__button--ativado {
+        background: #146850;
+        border: 1px solid transparent;
+        color: #FFF;
+    }
+
+
 `;

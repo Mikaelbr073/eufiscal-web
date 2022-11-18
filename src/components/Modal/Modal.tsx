@@ -1,19 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { RiCloseLine } from "react-icons/ri";
+import { AtualizarStatusPorIdUseCase } from '../../@core/application/denuncia/atualizar-status.use-case';
 import { Denuncia } from '../../@core/domain/entities/denuncia';
+import { container, Registry } from '../../@core/infra/container-registry';
+import { AuthContext } from '../../context/auth.provider';
 
 import { Container } from './styles';
 
 type DenunciasProps = {
     setIsOpen: boolean;
     denuncia?: Denuncia;
+    atualizarStatus: Function;
 }
 
-const Modal: React.FC<DenunciasProps> = ({ setIsOpen, denuncia }) => {
+const Modal: React.FC<DenunciasProps> = ({ setIsOpen, denuncia, atualizarStatus }) => {
 
     const status = denuncia?.status.resolvido !== null ? 'Resolvido' 
                     : denuncia.status.analise !== null ? 'Em analise'
                     : 'Pedente'
+
+                    
+    const { isAuthenticated, usuario } = useContext(AuthContext);
+
+
 
   return (
     <Container>
@@ -27,7 +36,7 @@ const Modal: React.FC<DenunciasProps> = ({ setIsOpen, denuncia }) => {
                         <h2 className='modal__header-titulo'>{`Denuncia #${denuncia?.id}`}</h2>
                         <small className='modal__header-badge'>{status}</small>
                     </div>
-                    <button>x</button>
+                    <button onClick={() => setIsOpen(false)}>x</button>
                 </div>
 
                 <div className="content">
@@ -94,27 +103,25 @@ const Modal: React.FC<DenunciasProps> = ({ setIsOpen, denuncia }) => {
                         <div className='line'></div>
                         <div>
 
-                        <div>
-                            <input type="radio" id="analise" name="status" value="analise" />
-                            <label htmlFor="analise">Em analise</label>
-
-                            <input type="radio" id="resolvido" name="status" value="resolvido" />
-                            <label htmlFor="resolvido">Resolvido</label>
-                        </div>
+                        {
+                            (isAuthenticated && usuario) && (
+                                <div className='action-bar'>
+                                    {denuncia?.status.abertura && (
+                                        <button onClick={() => atualizarStatus(denuncia.id)} className='action-bar__button action-bar__button--ativado'>Analisar problema</button>
+                                    )}
+                                    {(denuncia?.status.analise && !(denuncia?.status.resolvido)) && (
+                                        <button onClick={() => atualizarStatus(denuncia.id)} className='action-bar__button action-bar__button--ativado'>Resolver problema</button>
+                                    )}
+                                    {denuncia?.status.resolvido && (
+                                        <button onClick={() => atualizarStatus(denuncia.id)} className='action-bar__button action-bar__button--desativado'>Problema já resolvido</button>
+                                    )}
+                                </div>
+                            )
+                        }
 
                         </div>
                     </div>
                 </div>
-
-                {/* <div className="modalHeader">
-                    <h5 className="heading">Dialog</h5>
-                </div>
-                <button className="closeBtn" onClick={() => setIsOpen(false)}>
-                    <RiCloseLine style={{ marginBottom: "-3px" }} />
-                </button>
-                <div className="content">
-                    Are you sure you want to delete the item?
-                </div> */}
             </div>
         </div>
     </Container>

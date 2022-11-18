@@ -4,11 +4,13 @@ import { BuscarCidadePorIdUseCase } from "../application/cidade/buscar-cidade-po
 import { ListarCidadeUseCase } from "../application/cidade/lista-cidade.use-case";
 import { BuscarDenunciaPorIdUseCase } from "../application/denuncia/buscar-denuncia-por-id.use-case";
 import { ListaDenunciaUseCase } from "../application/denuncia/listar-denuncia.use-case";
+import { LogarUseCase } from "../application/login/logar.use-case";
 import { ListaStatusUseCase } from "../application/status/listar-status.use-case";
 import { CategoriaHttpGateway } from "./gateways/categoria-http.gateway";
 import { CidadeHttpGateway } from "./gateways/cidade-http.gateway";
 import { DenunciaHttpGateway } from "./gateways/denuncia-http.gateway";
 import { http } from "./gateways/http";
+import { LoginHttpGateway } from "./gateways/login-http.gateway";
 import { StatusHttpGateway } from "./gateways/status-http.gateway";
 
 export const Registry = {
@@ -18,11 +20,13 @@ export const Registry = {
     CategoriaGateway: Symbol.for("CategoriaGateway"),
     StatusGateway: Symbol.for("StatusGateway"),
     CidadeGateway: Symbol.for("CidadeGateway"),
+    LoginGateway: Symbol.for("LoginGateway"),
 
     ListaDenunciaUseCase: Symbol.for("ListarDenunciaUseCase"),
     ListaCategoriaUseCase: Symbol.for("ListarCategoriaUseCase"),
     ListaStatusUseCase: Symbol.for("ListarStatusUseCase"),
     ListarCidadeUseCase: Symbol.for("ListarCidadeUseCase"),
+    LogarUseCase: Symbol.for("LogarUseCase"),
 
     BuscarDenunciaPorId: Symbol.for("BuscarDenunciaPorId"),
     BuscarCateogriaPorId: Symbol.for("BuscarCateogriaPorId"),
@@ -54,6 +58,11 @@ container.bind(Registry.CidadeGateway).toDynamicValue((context) => {
     return new CidadeHttpGateway(context.container.get(Registry.AxiosAdapter))
 })
 
+// Login http
+container.bind(Registry.LoginGateway).toDynamicValue((context) => {
+    return new LoginHttpGateway(context.container.get(Registry.AxiosAdapter))
+})
+
 container.bind(Registry.ListaDenunciaUseCase).toDynamicValue((context) => {
     return new ListaDenunciaUseCase(context.container.get(Registry.DenunciaGateway));
 })
@@ -76,4 +85,8 @@ container.bind(Registry.BuscarDenunciaPorId).toDynamicValue((context) => {
 
 container.bind(Registry.BuscarCidadePorIdUseCase).toDynamicValue((context) => {
     return new BuscarCidadePorIdUseCase(context.container.get(Registry.CidadeGateway));
+})
+
+container.bind(Registry.LogarUseCase).toDynamicValue((context) => {
+    return new LogarUseCase(context.container.get(Registry.LoginGateway));
 })

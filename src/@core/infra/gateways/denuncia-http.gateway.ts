@@ -7,14 +7,15 @@ import { DenunciaGateway } from "../../domain/gateways/denuncia.gateway";
 export class DenunciaHttpGateway implements DenunciaGateway {
     constructor(private http: AxiosInstance) {}
 
-    buscarTudo(filter: DenunciaFilter): Promise<Denuncia[]> {
+    atualizarStatus(id: number): Promise<boolean> {
+        return this.http.get<Denuncia>(`/denuncias/${id}/atualizar-status`)
+            .then(res => res.status === 201 && true)
+    }
 
+    buscarTudo(filter: DenunciaFilter): Promise<Denuncia[]> {
         const query = getQueryString(filter.toJSON())
 
-        console.log(`/denuncias${query && '?' + query}`)
-
         return this.http.get<Denuncia[]>(`/denuncias${query && '?' + query}`).then(res => {
-            console.log(res)
             return res.data.map(
                 data => 
                     new Denuncia({
