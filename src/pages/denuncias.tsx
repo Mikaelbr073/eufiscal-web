@@ -26,12 +26,14 @@ import { Cidade } from '../@core/domain/entities/cidade'
 import { BuscarCidadePorIdUseCase } from '../@core/application/cidade/buscar-cidade-por-id.use-case'
 import { AuthContext, AuthProvider } from '../context/auth.provider'
 import { AtualizarStatusPorIdUseCase } from '../@core/application/denuncia/atualizar-status.use-case'
+import { parseCookies } from 'nookies'
 
 type DenunciasProps = {
     denuncias: Denuncia[]
     categorias: Categoria[]
     status: Status[]
     cidades: Cidade[]
+    isAuthorization: boolean
 }
 
 const Denuncias: NextPage<DenunciasProps> = ({
@@ -183,8 +185,9 @@ const Denuncias: NextPage<DenunciasProps> = ({
                             <option value="ipsum">ipsum</option>
                             <option value="dolor">dolor</option>
                         </select> */}
-                        {(usuario && isAuthenticated) && (
+                        {(props.isAuthorization) && (
                             <button
+                                onClick={() => signOut()}
                                 onChange={signOut}
                                 className='header__button'
                             >
@@ -253,6 +256,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const listarCidadeUseCase = container.get<ListarCidadeUseCase>(Registry.ListarCidadeUseCase);
     const cidades = await listarCidadeUseCase.execute();
 
+    const { ['token.eufiscal-web']: token } = parseCookies(context)
+
+    let isAuthorization = token !== undefined
 
     return ({
         props: {
@@ -260,6 +266,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             categorias: categorias.map(categoria => categoria.toJSON()),
             status: status.map(status => status.toJSON()),
             cidades: cidades.map(cidade => cidade.toJSON()),
+            isAuthorization
         },
     })
 }

@@ -8,7 +8,7 @@ import { AuthContext } from '../../context/auth.provider';
 import { Container } from './styles';
 
 type DenunciasProps = {
-    setIsOpen: boolean;
+    setIsOpen: Function;
     denuncia?: Denuncia;
     atualizarStatus: Function;
 }
@@ -106,13 +106,13 @@ const Modal: React.FC<DenunciasProps> = ({ setIsOpen, denuncia, atualizarStatus 
                         {
                             (isAuthenticated && usuario) && (
                                 <div className='action-bar'>
-                                    {denuncia?.status.abertura && (
+                                    {status === "Pedente" && (
                                         <button onClick={() => atualizarStatus(denuncia.id)} className='action-bar__button action-bar__button--ativado'>Analisar problema</button>
                                     )}
-                                    {(denuncia?.status.analise && !(denuncia?.status.resolvido)) && (
+                                    {status === "Em analise" && (
                                         <button onClick={() => atualizarStatus(denuncia.id)} className='action-bar__button action-bar__button--ativado'>Resolver problema</button>
                                     )}
-                                    {denuncia?.status.resolvido && (
+                                    {status === "Resolvido" && (
                                         <button onClick={() => atualizarStatus(denuncia.id)} className='action-bar__button action-bar__button--desativado'>Problema já resolvido</button>
                                     )}
                                 </div>

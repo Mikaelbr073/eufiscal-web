@@ -32,6 +32,7 @@ export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(!!usuario)
     const router = useRouter()
   
+    console.log("oi")
     useEffect(() => {
       setIsAuthenticated(!!usuario)
     }, [usuario])
@@ -51,6 +52,7 @@ export const AuthProvider = ({ children }) => {
     async function signOut() {
       setUsuario(null)
       destroyCookie(undefined, 'token.eufiscal-web')
+      router.push('/denuncias')
     }
   
     async function signIn({ email, senha }: LoginDataProps) {
