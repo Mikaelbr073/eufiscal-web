@@ -36,7 +36,6 @@ export default function Home() {
         <Row gutter={16}>
           
           <Column sm={8} md={4} lg={8} xl={4} xxl={12}>
-            <Header />
           </Column>
           
           <Column sm={8} md={4} lg={8} xl={4} xxl={12}>
