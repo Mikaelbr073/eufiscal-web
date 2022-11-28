@@ -1,13 +1,20 @@
 import React from 'react';
 import Autocomplete from '../Autocomplete';
 
-import { Container, Mensagem } from './styles';
+import { Container, Mensagem, Search } from './styles';
 
-const HeroSection: React.FC = () => {
+const HeroSection: React.FC = ({
+  cidades, onSelectedCidade
+}) => {
   return (
     <Container>
         <Mensagem>Sua denúncia pode ser ouvida aqui!</Mensagem>
-        <Autocomplete
+        <div style={{
+          // position: 'relative'
+        }}>
+        <Search cidades={cidades} onSelectedCidade={onSelectedCidade} />
+        </div>
+        {/* <Autocomplete
           cidades={[
             "A",
             "B",
@@ -15,7 +22,7 @@ const HeroSection: React.FC = () => {
             "D",
             "E"
           ]}
-          />
+          /> */}
     </Container>
   );
 }

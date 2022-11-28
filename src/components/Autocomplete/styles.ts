@@ -3,12 +3,15 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
 
-    margin: auto;
+    /* margin: auto; */
     
-    position: relative;
-    bottom: -110px;
+    /* position: relative; */
+    left: 0px;
+    /* right: 522px;
+    top: 0px; */
+    /* bottom: -110px; */
 `;
 
 export const ListaSugestoes = styled.div`

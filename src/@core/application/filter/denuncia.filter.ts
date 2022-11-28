@@ -1,9 +1,9 @@
 import { BaseFilter } from "./shared/base.filter"
 
 export type DenunciaFilterProps = {
-    cidadeId?: number | null
-    categoriaId?: number | null
-    status?: string | null
+    cidadeID?: number | null
+    categoriaID?: number | null
+    statusID?: number | null
 }
 
 export class DenunciaFilter extends BaseFilter {
@@ -11,23 +11,23 @@ export class DenunciaFilter extends BaseFilter {
         super({})
     }
 
-    get cidadeId() {
-        return this.props.cidadeId;
+    get cidadeID() {
+        return this.props.cidadeID;
     }
 
-    get categoriaId() {
-        return this.props.categoriaId;
+    get categoriaID() {
+        return this.props.categoriaID;
     }
 
-    get status() {
-        return this.props.status;
+    get statusID() {
+        return this.props.statusID;
     }
 
     toJSON() {
         return {
-            cidadeId: this.cidadeId,
-            categoriaId: this.categoriaId,
-            status: this.status
+            cidadeID: this.cidadeID,
+            categoriaID: this.categoriaID,
+            statusID: this.statusID
         }
     }
 }

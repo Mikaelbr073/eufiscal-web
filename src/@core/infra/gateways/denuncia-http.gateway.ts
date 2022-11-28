@@ -4,53 +4,103 @@ import { DenunciaFilter } from "../../application/filter/denuncia.filter";
 import { Denuncia } from "../../domain/entities/denuncia";
 import { DenunciaGateway } from "../../domain/gateways/denuncia.gateway";
 
+type DenunciaDTO = {
+    id: number,
+    titulo: string,
+    descricao: string,
+    fotoURL: string,
+    denunciaIrregular: boolean,
+    statusID: number,
+    categoria: {
+        id: number,
+        nome: string,
+    },
+    status: {
+        id: number,
+        nome: string,
+    },
+    criadoEm: string,
+    cidade: {
+        id: number,
+        nome: string,
+        latitude: string,
+        longitude: string,
+    },
+    latitude: string,
+    longitude: string,
+}
+
 export class DenunciaHttpGateway implements DenunciaGateway {
     constructor(private http: AxiosInstance) {}
 
     atualizarStatus(id: number): Promise<boolean> {
-        return this.http.get<Denuncia>(`/denuncias/${id}/atualizar-status`)
+        return this.http.post<DenunciaDTO>(`/problema/${id}/atualizarStatus`)
             .then(res => res.status === 201 && true)
     }
 
     buscarTudo(filter: DenunciaFilter): Promise<Denuncia[]> {
         const query = getQueryString(filter.toJSON())
 
-        return this.http.get<Denuncia[]>(`/denuncias${query && '?' + query}`).then(res => {
+        return this.http.get<DenunciaDTO[]>(`/problema${query && '?' + query}`).then(res => {
+        // return this.http.get<DenunciaDTO[]>(`/problema`).then(res => {
             return res.data.map(
-                data => 
-                    new Denuncia({
+                data => {
+                    const resultado =  new Denuncia({
                         id: data.id,
                         titulo: data.titulo,
                         descricao: data.descricao,
-                        urlFoto: data.urlFoto,
+                        urlFoto: data.fotoURL,
                         denunciaIrregular: data.denunciaIrregular,
-                        nomeCategoria: data.nomeCategoria,
-                        categoriaId: data.categoriaId,
-                        status: data.status,
-                        cidade: data.cidade,
-                        estadoSigla: data.estadoSigla,
-                        lat: data.lat,
-                        lng: data.lng,
+                        nomeCategoria: data.categoria.nome,
+                        categoriaId: data.categoria.id,
+                        status: {
+                            abertura: {
+                                data: data.criadoEm,
+                                descricao: ""
+                            },
+                            analise: {
+                                data: "",
+                                descricao: ""
+                            },
+                            resolvido: {
+                                data: "",
+                                descricao: ""
+                            }
+                        },
+                        cidade: data.cidade.nome,
+                        estadoSigla: "",
+                        lat: Number(data.latitude),
+                        lng: Number(data.longitude),
                     })
+
+
+                    return resultado;
+                }
             )
         }
         );
     }
     buscarPorId(id: number): Promise<Denuncia> {
-        return this.http.get<Denuncia>(`/denuncias/${id}`).then(res => {
+        return this.http.get(`/problema/${id}`).then(res => {
+            const data = res.data
+            console.log(data)
             return new Denuncia({
-                id: res.data.id,
-                titulo: res.data.titulo,
-                descricao: res.data.descricao,
-                urlFoto: res.data.urlFoto,
-                denunciaIrregular: res.data.denunciaIrregular,
-                nomeCategoria: res.data.nomeCategoria,
-                categoriaId: res.data.categoriaId,
-                status: res.data.status,
-                cidade: res.data.cidade,
-                estadoSigla: res.data.estadoSigla,
-                lat: res.data.lat,
-                lng: res.data.lng,
+                id: data.id,
+                titulo: data.titulo,
+                descricao: data.descricao,
+                urlFoto: data.fotoURL,
+                denunciaIrregular: data.denunciaIrregular,
+                nomeCategoria: data.categoria.nome,
+                categoriaId: data.categoria.id,
+                status: {
+                    abertura: data.statusHistorico.abertura,
+                    analise: data.statusHistorico.analise,
+                    resolvido: data.statusHistorico.resolvido,
+                },
+                cidade: data.cidade.nome,
+                estadoSigla: "PE",
+                lat: Number(data.latitude),
+                lng: Number(data.longitude),
             })
         });
     }

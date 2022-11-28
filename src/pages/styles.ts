@@ -33,6 +33,7 @@ export const ContainerIndex = styled.div`
 
   .container-section-hero {
     margin: 40px 80px 115px 80px;
+    margin: 40px 0px 115px 0px;
   }
 
   

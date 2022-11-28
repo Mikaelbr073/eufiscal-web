@@ -32,7 +32,6 @@ export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(!!usuario)
     const router = useRouter()
   
-    console.log("oi")
     useEffect(() => {
       setIsAuthenticated(!!usuario)
     }, [usuario])

@@ -2,23 +2,36 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     display: flex;
-    /* flex: 1; */
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
 
-    margin: auto;
-    
-    
-    bottom: -110px; */
-    /* width: 500px; */
-    position: relative;
-    z-index: 10;
+    input {
+        height: 40px;
+        padding: 0px 14px;
+        border: none;
+        border-radius: 4px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        background: rgba(136, 71, 241, 0.06);
+        border: none;
+        color: #CCCCCC;
+    }
+
+    input:focus {
+        color: #212529;
+        background-color: #fff;
+        border-color: #764bf1ba;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem #764bf140;
+    }
+
+    margin: 0;
 `;
 
 export const ListaSugestoes = styled.div`
     background-color: #FFF;
-    width: 100%;
+    width: inherit;
     position: absolute;
     top: 45px;
 
@@ -80,3 +93,4 @@ export const ContainerInputPesquisar = styled.div`
         flex: 1; */
     }
 `;
+

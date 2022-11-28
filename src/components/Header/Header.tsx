@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Image from 'next/image';
-import LogoEuFiscal from '../../../public/LOREMIPSUM.svg'
 
-import { Container, ContainerFiltro, Logo, Menu, MenuMobile } from './styles';
+import LogoEuFiscal from '../../../public/LOREMIPSUM.svg'
+import { BtnFecharModal, Container, ContainerFiltro, ContainerInput, Logo, Menu, MenuHamburguer, MenuMobile, Search, SearchMobile } from './styles';
+
 import SearchCidade from '../SearchCidade';
 import { Cidade } from '../../@core/domain/entities/cidade';
 import { ListaDenunciaUseCase } from '../../@core/application/denuncia/listar-denuncia.use-case';
@@ -14,6 +15,7 @@ import { Status } from '../../@core/domain/entities/status';
 import { AuthContext } from '../../context/auth.provider';
 import { PosicaoContext } from '../../context/posicao.provider';
 import Select from '../Select';
+import Link from 'next/link';
 
 type HeaderProps = {
   categorias: Categoria[]
@@ -37,6 +39,7 @@ const Header: React.FC<HeaderProps> = ({
 
   const [menuShow, setMenuShow] = useState<boolean>(false);
 
+
   const {
     setDenuncias,
     setLat,
@@ -46,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({
 
   const onSelectedCidade = async (cidadeId: number) => {
     const listarDenunciaUseCase = container.get<ListaDenunciaUseCase>(Registry.ListaDenunciaUseCase);
-    const denuncias = await listarDenunciaUseCase.execute(new DenunciaFilter({ cidadeId }));
+    const denuncias = await listarDenunciaUseCase.execute(new DenunciaFilter({ cidadeID: cidadeId }));
     setDenuncias(denuncias)
 
     const buscarCidadePorIdUseCase = container.get<BuscarCidadePorIdUseCase>(Registry.BuscarCidadePorIdUseCase);
@@ -64,14 +67,11 @@ const Header: React.FC<HeaderProps> = ({
       </Logo>
       {menuShow && (
         <MenuMobile>
-          <div>
-            <SearchCidade
-              classNameContainer='buscar'
+          <ContainerInput>
+            <SearchMobile
               cidades={cidades}
               onSelectedCidade={onSelectedCidade}
             />
-          </div>
-          <div>
             <Select
               onChange={(evt) => setCategoriaIdSelecionada(evt.target.value !== "" ? Number(evt.target.value) : null)}
               optionDefaultName="Todas Categorias"
@@ -97,15 +97,16 @@ const Header: React.FC<HeaderProps> = ({
                 sair
               </button>
             )}
-          </div>
+            <BtnFecharModal onClick={() => setMenuShow(false)}>fechar</BtnFecharModal>
+          </ContainerInput>
         </MenuMobile>
       )}
+      
+      <MenuHamburguer onClick={() => {
+        setMenuShow(true)
+      }}>O</MenuHamburguer>
       <Menu>
-        <SearchCidade
-          classNameContainer='buscar'
-          cidades={cidades}
-          onSelectedCidade={onSelectedCidade}
-        />
+        <Search cidades={cidades} onSelectedCidade={onSelectedCidade} />
         <ContainerFiltro>
           <Select
             onChange={(evt) => setCategoriaIdSelecionada(evt.target.value !== "" ? Number(evt.target.value) : null)}
@@ -123,7 +124,7 @@ const Header: React.FC<HeaderProps> = ({
             optionValueName="id"
             optionName="nome"
           />
-          {(isAuthorization) && (
+          {(isAuthorization) ? (
             <button
               onClick={() => signOut()}
               onChange={signOut}
@@ -131,6 +132,15 @@ const Header: React.FC<HeaderProps> = ({
             >
               sair
             </button>
+          ) : (
+            
+              <Link
+                href="/login"
+                className='header__button header__button--signin'
+              >
+                entrar
+              </Link>
+            
           )}
         </ContainerFiltro>
       </Menu>

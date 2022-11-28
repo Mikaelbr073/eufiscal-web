@@ -2,6 +2,7 @@ import { Container } from "inversify";
 import { ListaCategoriaUseCase } from "../application/categoria/listar-categoria.use-case";
 import { BuscarCidadePorIdUseCase } from "../application/cidade/buscar-cidade-por-id.use-case";
 import { ListarCidadeUseCase } from "../application/cidade/lista-cidade.use-case";
+import { AtualizarStatusPorIdUseCase } from "../application/denuncia/atualizar-status.use-case";
 import { BuscarDenunciaPorIdUseCase } from "../application/denuncia/buscar-denuncia-por-id.use-case";
 import { ListaDenunciaUseCase } from "../application/denuncia/listar-denuncia.use-case";
 import { LogarUseCase } from "../application/login/logar.use-case";
@@ -27,6 +28,7 @@ export const Registry = {
     ListaStatusUseCase: Symbol.for("ListarStatusUseCase"),
     ListarCidadeUseCase: Symbol.for("ListarCidadeUseCase"),
     LogarUseCase: Symbol.for("LogarUseCase"),
+    AtualizarStatusUseCase: Symbol.for("AtualizarStatusUseCase"),
 
     BuscarDenunciaPorId: Symbol.for("BuscarDenunciaPorId"),
     BuscarCateogriaPorId: Symbol.for("BuscarCateogriaPorId"),
@@ -89,4 +91,8 @@ container.bind(Registry.BuscarCidadePorIdUseCase).toDynamicValue((context) => {
 
 container.bind(Registry.LogarUseCase).toDynamicValue((context) => {
     return new LogarUseCase(context.container.get(Registry.LoginGateway));
+})
+
+container.bind(Registry.AtualizarStatusUseCase).toDynamicValue((context) => {
+    return new AtualizarStatusPorIdUseCase(context.container.get(Registry.DenunciaGateway));
 })

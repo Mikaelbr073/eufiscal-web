@@ -7,6 +7,7 @@ type SearchCidadeProps = {
     children?: React.ReactNode;
     cidades: Cidade[];
     classNameContainer?: string;
+    className?: string | undefined;
     onSelectedCidade: Function;
 }
 
@@ -74,8 +75,7 @@ const SearchCidade: React.FC<SearchCidadeProps> = ({
     }
 
     return (
-        <>
-        <Container className={classNameContainer}>
+        <Container className={props.className}>
             <ContainerInputPesquisar>
                     <input
                         {...props}
@@ -90,7 +90,6 @@ const SearchCidade: React.FC<SearchCidadeProps> = ({
                 {listaCidadesComponent}
             </ListaSugestoes>
         </Container>
-        </>
     );
 }
 

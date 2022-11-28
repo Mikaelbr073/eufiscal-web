@@ -1,7 +1,9 @@
 import Head from 'next/head'
-import { Container, ContainerMapa, SectionCardMarcadores } from './styles'
-import React, { useState, useContext, useEffect, useLayoutEffect } from 'react'
+import { format } from 'date-fns'
 import { GetServerSideProps, NextPage } from 'next'
+import React, { useState, useContext, useEffect, useLayoutEffect } from 'react'
+
+import { Container, ContainerMapa, SectionCardMarcadores } from './styles'
 import Modal from '../components/Modal'
 
 import { ListaDenunciaUseCase } from '../@core/application/denuncia/listar-denuncia.use-case'
@@ -60,7 +62,7 @@ const Denuncias: NextPage<DenunciasProps> = ({
         filtrarDenuncias()
     }, [categoriaIdSelecionada, statusSelecionada])
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         setDenuncias(props.denuncias)
         // alert(denuncias.length)
         // // Posicao da primeira denuncia
@@ -83,7 +85,7 @@ const Denuncias: NextPage<DenunciasProps> = ({
     }, [])
 
     const atualizarStatus = async (id: number): Promise<void> => {
-        const atualizarStatusUseCase = container.get<AtualizarStatusPorIdUseCase>(Registry.ListarCidadeUseCase);
+        const atualizarStatusUseCase = container.get<AtualizarStatusPorIdUseCase>(Registry.AtualizarStatusUseCase);
         const resultado = await atualizarStatusUseCase.execute(id);
 
         if (resultado) {
@@ -102,9 +104,9 @@ const Denuncias: NextPage<DenunciasProps> = ({
     const filtrarDenuncias = async () => {
         const listarDenunciaUseCase = container.get<ListaDenunciaUseCase>(Registry.ListaDenunciaUseCase);
         const denuncias = await listarDenunciaUseCase.execute(new DenunciaFilter({
-            cidadeId,
-            categoriaId: categoriaIdSelecionada,
-            status: statusSelecionada
+            cidadeID: cidadeId,
+            categoriaID: categoriaIdSelecionada,
+            statusID: statusSelecionada
         }));
         setDenuncias(denuncias)
     }
@@ -117,7 +119,7 @@ const Denuncias: NextPage<DenunciasProps> = ({
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            {isOpen && <Modal atualizarStatus={atualizarStatus} denuncia={denunciaModal} setIsOpen={setIsOpen} />}
+            {isOpen && <Modal isAuthorization={props.isAuthorization} atualizarStatus={atualizarStatus} denuncia={denunciaModal} setIsOpen={setIsOpen} />}
 
             <Header
                 cidades={cidades}
@@ -141,8 +143,8 @@ const Denuncias: NextPage<DenunciasProps> = ({
                         denuncias.map((denuncia: Denuncia) => (
                             <CardMarcador
                                 key={denuncia.id}
-                                titulo={denuncia.titulo}
-                                data={denuncia.status.abertura.data}
+                                titulo={denuncia?.titulo}
+                                data={format(new Date(denuncia.status?.abertura?.data), "dd/MM/yyyy 'às' hh:mm")}
                                 categoria={denuncia.nomeCategoria}
                                 urlImagem={denuncia.urlFoto}
                                 handleClick={() => abrirDenuncia(denuncia.id)}
@@ -170,6 +172,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     const listarCidadeUseCase = container.get<ListarCidadeUseCase>(Registry.ListarCidadeUseCase);
     const cidades = await listarCidadeUseCase.execute();
+    
 
     const { ['token.eufiscal-web']: token } = parseCookies(context)
 

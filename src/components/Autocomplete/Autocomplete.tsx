@@ -65,7 +65,6 @@ const Autocomplete: React.FC<AutocompleteProps> = ({
     }
 
     return (
-        <>
         <Container>
             <ContainerInputPesquisar>
                     <input
@@ -82,7 +81,6 @@ const Autocomplete: React.FC<AutocompleteProps> = ({
                 {listaCidadesComponent}
             </ListaSugestoes>
         </Container>
-        </>
     );
 }
 

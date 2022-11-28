@@ -6,7 +6,7 @@ export class CategoriaHttpGateway implements CategoriaGateway {
     constructor(private http: AxiosInstance) {}
 
     buscarTudo(): Promise<Categoria[]> {
-        return this.http.get<Categoria[]>("/categorias").then(res =>
+        return this.http.get<Categoria[]>("/categoria").then(res =>
             res.data.map(
                 data => 
                     new Categoria({
@@ -18,7 +18,7 @@ export class CategoriaHttpGateway implements CategoriaGateway {
     }
     
     buscarPorId(id: number): Promise<Categoria> {
-        return this.http.get<Categoria>(`/categorias/${id}`).then(res => {
+        return this.http.get<Categoria>(`/categoria/${id}`).then(res => {
             return new Categoria({
                 id: res.data.id,
                 nome: res.data.nome,

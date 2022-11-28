@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import SearchCidade from '../SearchCidade';
 
 export const Container = styled.div`
 
@@ -48,11 +49,22 @@ export const Container = styled.div`
         border-radius: 8px;
         }
 
+        .header__button--signin {
+        background: #47f36029;
+        color: #176209;
+        padding: 10px 14px;
+        }
+
         
 
         .header__button:hover {
         cursor: pointer;
         background: #F3474727;
+        }
+
+        .header__button--signin:hover {
+        cursor: pointer;
+        background: #2cc04229;
         }
 
     
@@ -93,54 +105,6 @@ export const Menu = styled.div`
         display: flex;
         flex-direction: row;
         flex: 1;
-
-        .buscar {
-            /* 
-
-            height: 40px;
-            padding: 0px 14px;
-
-            border: none;
-            border-radius: 4px;
-
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 17px;
-
-            background: rgba(136, 71, 241, 0.06);
-            color: #CCCCCC;
-            border: none; */
-            flex: 1;
-            margin-right: 16px;
-        }
-
-        .buscar input {
-            height: 40px;
-            padding: 0px 14px;
-
-            border: none;
-            border-radius: 4px;
-
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 17px;
-            
-            background: rgba(136, 71, 241, 0.06);
-            color: #CCCCCC;
-            border: none;
-        }
-
-        .buscar input:focus {
-            color: #212529;
-            background-color: #fff;
-            border-color: #764bf1ba;
-            outline: 0;
-            box-shadow: 0 0 0 0.25rem #764bf140;
-        }
     }
 `;
 
@@ -148,11 +112,12 @@ export const MenuMobile = styled.div`
 
     z-index: 999;
     position: absolute;
-    top: 48px;
+    top: 0px;
     left: 0px;
     width: 100%;
-    height: calc(100vh - 48px);
-    background-color: red;
+    height: 100vh;
+    background-color: #FFF;
+    padding: 16px;
 
     /* @media (min-width: 768px) {
         display: none;
@@ -181,4 +146,78 @@ export const ContainerFiltro = styled.div`
     & > select:last-child {
       margin-right: 0px;
     }
+`;
+
+export const Search = styled(SearchCidade)`
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    flex: 1;
+    margin-right: 8px;
+`;
+
+export const SearchMobile = styled(SearchCidade)`
+    position: relative;
+    flex: 1;
+    margin-bottom: 8px;
+`;
+export const ContainerInput = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    select {
+        margin-bottom: 8px;
+    }
+`;
+
+export const BtnFecharModal = styled.button`
+    background: #764BF1;
+    color: #FFF;
+    border-radius: 4px;
+    height: 40px;
+    border: none;
+    padding: 0px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 16px;
+
+    &:hover {
+        cursor: pointer;
+    }
+`;
+
+export const MenuHamburguer = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+
+    border: none;
+    border-radius: 4px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    background: #FFFFFF;
+    border: 1px solid #F0F0F0;
+    border-radius: 8px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      color: #212529;
+      background-color: #fff;
+      border-color: #764bf1ba;
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem #764bf140;
+    }
+
+@media (min-width: 768px) {
+    display: none;
+}
 `;
