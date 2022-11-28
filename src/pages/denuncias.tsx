@@ -2,6 +2,8 @@ import Head from 'next/head'
 import { format } from 'date-fns'
 import { GetServerSideProps, NextPage } from 'next'
 import React, { useState, useContext, useEffect, useLayoutEffect } from 'react'
+import { useRouter } from 'next/router'
+
 
 import { Container, ContainerMapa, SectionCardMarcadores } from './styles'
 import Modal from '../components/Modal'
@@ -36,6 +38,7 @@ type DenunciasProps = {
 const Denuncias: NextPage<DenunciasProps> = ({
     categorias,
     cidades,
+    cidade,
     status, ...props
 }) => {
 
@@ -51,6 +54,8 @@ const Denuncias: NextPage<DenunciasProps> = ({
         setCidadeId
     } = useContext(PosicaoContext);
 
+    const router = useRouter()
+    
     const { isAuthenticated, usuario, signOut } = useContext(AuthContext);
     const [isOpen, setIsOpen] = useState(false);
     const [denunciaModal, setDenunciaModal] = useState<Denuncia>();
@@ -64,6 +69,14 @@ const Denuncias: NextPage<DenunciasProps> = ({
 
     useEffect(() => {
         setDenuncias(props.denuncias)
+        if (router.query.denunciaId) {
+            abrirDenuncia(Number(router.query.denunciaId))
+        } else if (router.query.cidadeId) {
+            setCidadeId(router.query.cidadeId)
+            filtrarDenuncias()
+            setLat(cidades.find(c => c.id === Number(router.query.cidadeId))?.lat)
+            setLng(cidades.find(c => c.id === Number(router.query.cidadeId))?.lng)
+        }
         // alert(denuncias.length)
         // // Posicao da primeira denuncia
         // if(denuncias.length > 0) {

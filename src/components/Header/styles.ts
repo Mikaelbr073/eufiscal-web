@@ -55,8 +55,6 @@ export const Container = styled.div`
         padding: 10px 14px;
         }
 
-        
-
         .header__button:hover {
         cursor: pointer;
         background: #F3474727;

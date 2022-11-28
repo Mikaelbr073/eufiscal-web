@@ -62,7 +62,7 @@ const Modal: React.FC<DenunciasProps> = ({ setIsOpen, denuncia, atualizarStatus,
                                 </div>
                                 <div className='meta-content__item'>
                                     {/* <span className='meta-content__icone'>icon</span> */}
-                                    <span className='meta-content__info'>{format(new Date(denuncia?.status?.abertura?.data), "dd/MM/yyyy 'às' hh:mm")}</span>
+                                    <span className='meta-content__info'>{format((new Date(denuncia?.status?.abertura?.data) | new Date()), "dd/MM/yyyy 'às' hh:mm")}</span>
                                 </div>
                             </div>
                             <div className='content__descricao'>

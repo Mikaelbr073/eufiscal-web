@@ -22,6 +22,8 @@ import { Status } from '../@core/domain/entities/status'
 import { Cidade } from '../@core/domain/entities/cidade'
 import ScrollHorizontal from '../components/ScrollHorizontal'
 import CardDenuncia from '../components/CardDenuncia'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 type DenunciasProps = {
   denuncias: Denuncia[]
@@ -37,6 +39,9 @@ const Index: NextPage<DenunciasProps> = ({
   cidades,
   status, ...props
 }) => {
+  
+  const router = useRouter()
+
   return (
     <ContainerIndex>
       <div className='header'>
@@ -45,7 +50,12 @@ const Index: NextPage<DenunciasProps> = ({
         </div>
       </div>
       <div className='container-section-hero'>
-        <HeroSection cidades={cidades} onSelectedCidade={() => {}}  />
+        <HeroSection cidades={cidades} onSelectedCidade={(id: number) => {
+          router.push({
+            pathname: '/denuncias',
+            query: { cidadeId: id, },
+          })
+        }}  />
         {categorias
             .filter(categoria => {
               const qtdDenuncias = denuncias.filter(denuncia => denuncia.categoriaId === categoria.id).length
@@ -59,12 +69,20 @@ const Index: NextPage<DenunciasProps> = ({
                       .filter(denuncia => denuncia.categoriaId === categoria.id)
                       .map(denuncia => {
                         return (
-                          <CardDenuncia
+                          <Link href={{
+                            pathname: '/denuncias',
+                            query: {
+                              denunciaId: denuncia.id,
+                              cidade: denuncia.cidade
+                            }
+                          }} key={denuncia.id}>
+                            <CardDenuncia
                             titulo={denuncia.titulo}
                             subtitulo={denuncia.status.abertura?.data}
                             imagem={denuncia.urlFoto}
                             key={denuncia.id}
                           />
+                          </Link>
                         )
                       })
                   }
