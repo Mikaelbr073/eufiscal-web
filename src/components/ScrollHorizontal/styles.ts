@@ -37,7 +37,7 @@ export const Scroll = styled.div`
     } */
 
     padding-left: 32px;
-    padding-right: 32px;
+    /* padding-right: 32px; */
 
     margin-bottom: 16px;
 

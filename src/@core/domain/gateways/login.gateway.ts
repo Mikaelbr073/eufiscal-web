@@ -7,5 +7,5 @@ export type ResponseLogin = {
 }
 
 export interface LoginGateway {
-    logar(credenciais: LoginDataProps): Promise<ResponseLogin>;
+    logar(credenciais: LoginDataProps): Promise<ResponseLogin | Error>;
 }

@@ -5,10 +5,15 @@ import SearchCidade from '../SearchCidade';
 
 
 export const Container = styled.header`
-    padding: 64px;
+/* display: none; */
+    display: flex;
+    flex-direction: column;
+    padding: 0px 32px;
+
+    @media (min-width: 1400px) {
+        padding: 64px;
     position: relative;
     
-    display: none;
     flex-direction: column;
     justify-content: space-around;
     /* align-items: center; */
@@ -31,7 +36,9 @@ export const Container = styled.header`
 
     margin: 0px 32px;
 
-    @media (min-width: 1400px) {
+
+
+
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -50,6 +57,11 @@ export const Mensagem = styled.span`
 
     color: #FFFFFF;
     width: 500px;
+
+    display: none;
+    @media (min-width: 1400px) {
+        display: flex;
+    }
 `;
 
 export const Search = styled(SearchCidade)`
@@ -57,11 +69,21 @@ export const Search = styled(SearchCidade)`
     /* z-index: 1000; */
     /* flex: 1; */
     /* margin-right: 8px; */
-    background-color: #FFF !important;
-    width: 500px;
+    /* background-color: #FFF !important; */
+    
+    display: flex;
     border-radius: 8px;
     height: 50px;
     align-items: center;
+
+    /* margin: 0px 16px; */
+    
+
+    /* display: none; */
+    @media (min-width: 1400px) {
+        background-color: #FFF !important;
+        width: 500px;
+    }
     /* height: 80px; */
 
     

@@ -44,17 +44,21 @@ const Denuncias: NextPage<DenunciasProps> = ({
                 <input value={senha} onChange={(evt) => setSenha(evt.target.value)} placeholder='Senha' type="password" />
                 <button onClick={async () => {
 
-                    const resultado = await signIn({
+                    try {
+                      const resultado = await signIn({
                         email, senha
-                    })
+                      })
 
-                    if (resultado) {
-                        setEmail("")
-                        setSenha("")
-                        router.push('/denuncias')
-                        
-                    } else {
-                        alert("Email ou senha errada")
+                      if (resultado) {
+                          setEmail("")
+                          setSenha("")
+                          router.push('/denuncias')
+                          
+                      } else {
+                          alert("Emsssail ou senha errada")
+                      }
+                    } catch (error) {
+                      alert(error.message)
                     }
                 }}>fazer login</button>
             </div>
@@ -64,9 +68,6 @@ const Denuncias: NextPage<DenunciasProps> = ({
 
 export default Denuncias;
 
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-
-// }
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
     const { ['token.eufiscal-web']: token } = parseCookies(ctx)

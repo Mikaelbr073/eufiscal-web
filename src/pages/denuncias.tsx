@@ -71,30 +71,15 @@ const Denuncias: NextPage<DenunciasProps> = ({
         setDenuncias(props.denuncias)
         if (router.query.denunciaId) {
             abrirDenuncia(Number(router.query.denunciaId))
-        } else if (router.query.cidadeId) {
+        }
+        if (router.query.cidadeId) {
             setCidadeId(router.query.cidadeId)
             filtrarDenuncias()
             setLat(cidades.find(c => c.id === Number(router.query.cidadeId))?.lat)
             setLng(cidades.find(c => c.id === Number(router.query.cidadeId))?.lng)
+            window.history.replaceState(null, '', '/denuncias')
+
         }
-        // alert(denuncias.length)
-        // // Posicao da primeira denuncia
-        // if(denuncias.length > 0) {
-        // setLat(denuncias[0]?.lat)
-        // setLng(denuncias[0]?.lng)
-        // }
-
-        // Posicao do navegador
-        // if (navigator.geolocation) {
-        //     navigator.geolocation.getCurrentPosition((pos) => {
-        //         setLat(pos.coords.latitude)
-        //         setLng(pos.coords.longitude)
-        //     });
-        // }
-
-        // return () => {
-        //     setDenuncias([])
-        // }
     }, [])
 
     const atualizarStatus = async (id: number): Promise<void> => {

@@ -6,7 +6,7 @@ import { randomUUID } from "crypto";
 export class LoginHttpGateway implements LoginGateway {
     constructor(private http: AxiosInstance) {}
 
-    logar(credenciais: LoginData): Promise<ResponseLogin> {
+    logar(credenciais: LoginData): Promise<ResponseLogin | Error> {
         // return new Promise(resolve => {
         //     resolve({
         //         token: "asd324234324",
@@ -17,16 +17,23 @@ export class LoginHttpGateway implements LoginGateway {
         //         }
         //     })
         // })
-        return this.http.post<ResponseLogin>("/auth/login", credenciais).then(res =>
-            ({
+        return this.http.post<ResponseLogin>("/auth/login", credenciais).then(res => {
+console.log(res.status)
+            if (res.status === 401) {
+                return new Error("Email e/ou senha não existe ou está incorreta.");
+            }
+
+            return {
                 token: res.data.access_token,
                 usuario: {
                     id: -1,
                     email: credenciais.email,
                     nome: ''
                 }
-            })
-        );
+            }
+        }).catch(err => {
+            throw new Error("Email e/ou senha não existe ou está incorreta.")
+        });
     }
 }
 

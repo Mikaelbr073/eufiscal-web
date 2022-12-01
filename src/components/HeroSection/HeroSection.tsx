@@ -14,15 +14,6 @@ const HeroSection: React.FC = ({
         }}>
         <Search cidades={cidades} onSelectedCidade={onSelectedCidade} />
         </div>
-        {/* <Autocomplete
-          cidades={[
-            "A",
-            "B",
-            "C",
-            "D",
-            "E"
-          ]}
-          /> */}
     </Container>
   );
 }

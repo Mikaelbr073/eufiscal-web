@@ -38,7 +38,6 @@ export const ContainerIndex = styled.div`
 
   
   @media (min-width: 576px) {
-    background-color: red;
     .header {
       height: 56px;
       padding: 00 24px;
@@ -46,7 +45,6 @@ export const ContainerIndex = styled.div`
   }
 
   @media (min-width: 768px) {
-    background-color: yellowgreen;
     .header {
       height: 64px;
       padding: 00 32px;
@@ -58,7 +56,6 @@ export const ContainerIndex = styled.div`
   }
 
   @media (min-width: 992px) {
-    background-color: green;
     .header {
       height: 72px;
       padding: 00 40px;
@@ -66,7 +63,6 @@ export const ContainerIndex = styled.div`
   }
 
   @media (min-width: 1200px) {
-    background-color: blue;
     .header {
       height: 80px;
       padding: 00 48px;
@@ -74,7 +70,6 @@ export const ContainerIndex = styled.div`
   }
 
   @media (min-width: 1400px) {
-    background-color: #F5F7FF;
     .header {
       height: 96px;
       padding: 00 80px;
