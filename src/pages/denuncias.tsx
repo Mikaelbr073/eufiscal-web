@@ -86,6 +86,10 @@ const Denuncias: NextPage<DenunciasProps> = ({
         const atualizarStatusUseCase = container.get<AtualizarStatusPorIdUseCase>(Registry.AtualizarStatusUseCase);
         const resultado = await atualizarStatusUseCase.execute(id);
 
+        const useCase = container.get<BuscarDenunciaPorIdUseCase>(Registry.BuscarDenunciaPorId);
+        const denuncia = await useCase.execute(id);
+        setDenunciaModal(denuncia);
+
         if (resultado) {
             filtrarDenuncias()
         }
