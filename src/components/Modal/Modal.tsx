@@ -18,22 +18,21 @@ type DenunciasProps = {
 
 const Modal: React.FC<DenunciasProps> = ({ setIsOpen, denuncia, atualizarStatus, isAuthorization }) => {
 
-    const [denunciaq, setDenuciaq] = useState<Denuncia | null>(null);
+    const [dataAbertura, setDataAbertura] = useState<string | null>(null);
+    const [nomeCategoria, setNomeCategoria] = useState<string | null>(null);
 
     useEffect(() => {
         console.log(denuncia)
-        // const listarDenunciaUseCase = container.get<BuscarDenunciaPorIdUseCase>(Registry.BuscarDenunciaPorId);
-        // listarDenunciaUseCase.execute(denuncia.id).then(item => setDenuciaq(item))
-    }, [denunciaq])
-
-    
+        setNomeCategoria(denuncia.nomeCategoria)
+        setDataAbertura(
+            denuncia?.status?.abertura?.data ? format(new Date(denuncia?.status?.abertura?.data), "dd/MM/yyyy 'às' hh:mm"): ''
+        )
+    }, [denuncia])
 
     const status = denuncia?.status.resolvido !== null ? 'Resolvido' 
                     : denuncia.status.analise !== null ? 'Em analise'
                     : 'Pedente'
                     
-    const { isAuthenticated, usuario } = useContext(AuthContext);
-
     return (
         <Container>
             <div className="background" onClick={() => setIsOpen(false)} />
@@ -44,7 +43,7 @@ const Modal: React.FC<DenunciasProps> = ({ setIsOpen, denuncia, atualizarStatus,
                     <div className="modal__header">
                         <div className='modal__header-meta'>
                             <h2 className='modal__header-titulo'>{`Denuncia #${denuncia?.id}`}</h2>
-                            <small className='modal__header-badge'>{status}</small>
+                            <small className='modal__header-badge'>{nomeCategoria}</small>
                         </div>
                         <button onClick={() => setIsOpen(false)}>x</button>
                     </div>
@@ -62,7 +61,7 @@ const Modal: React.FC<DenunciasProps> = ({ setIsOpen, denuncia, atualizarStatus,
                                 </div>
                                 <div className='meta-content__item'>
                                     {/* <span className='meta-content__icone'>icon</span> */}
-                                    <span className='meta-content__info'>{format((new Date(denuncia?.status?.abertura?.data) | new Date()), "dd/MM/yyyy 'às' hh:mm")}</span>
+                                    <span className='meta-content__info'>{dataAbertura}</span>
                                 </div>
                             </div>
                             <div className='content__descricao'>

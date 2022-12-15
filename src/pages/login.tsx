@@ -40,6 +40,7 @@ const Denuncias: NextPage<DenunciasProps> = ({
     return (
         <ContainerLogin>
             <div className='login__container'>
+                <h2>Entra na conta</h2>
                 <input value={email} onChange={(evt) => setEmail(evt.target.value)} placeholder='Email' type="text" />
                 <input value={senha} onChange={(evt) => setSenha(evt.target.value)} placeholder='Senha' type="password" />
                 <button onClick={async () => {
