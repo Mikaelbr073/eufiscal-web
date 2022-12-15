@@ -183,7 +183,7 @@ export const ContainerSignIn = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
     height: 48px;
     padding: 00 16px;

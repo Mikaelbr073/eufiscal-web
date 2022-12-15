@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import Image from 'next/image';
 
-import LogoEuFiscal from '../../../public/LOREMIPSUM.svg'
+import LogoEuFiscal from '../../../public/logo.svg'
 import { BtnFecharModal, Container, ContainerFiltro, ContainerInput, Logo, Menu, MenuHamburguer, MenuMobile, Search, SearchMobile } from './styles';
 
 import SearchCidade from '../SearchCidade';

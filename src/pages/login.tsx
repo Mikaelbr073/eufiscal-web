@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Container, ContainerIndex, ContainerLogin, ContainerSignIn } from './styles'
-import Logo from '../../public/LOREMIPSUM.svg'
+import Logo from '../../public/logo.svg'
 import Mark from '../../public/mark.svg'
 import React, { useState, useContext, useEffect, useLayoutEffect } from 'react'
 import { GetServerSideProps, NextPage } from 'next'
@@ -47,26 +47,6 @@ const Denuncias: NextPage<DenunciasProps> = ({
                   >
                     <Image alt='EuFiscal logo' src={Logo} />
                   </Link>
-            </div>
-            <div>
-            {(props.isAuthorization) ? (
-                <button
-                  onClick={() => signOut()}
-                  onChange={signOut}
-                  className='header__button'
-                >
-                  sair
-                </button>
-              ) : (
-                
-                  <Link
-                    href="/login"
-                    className='header__button header__button--signin'
-                  >
-                    entrar
-                  </Link>
-                
-              )}
             </div>
           </div>
           <div className='login__container'>
