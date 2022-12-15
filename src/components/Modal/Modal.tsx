@@ -23,7 +23,7 @@ const Modal: React.FC<DenunciasProps> = ({ setIsOpen, denuncia, atualizarStatus,
 
     useEffect(() => {
         console.log(denuncia)
-        setNomeCategoria(denuncia.nomeCategoria)
+        setNomeCategoria(denuncia?.nomeCategoria)
         setDataAbertura(
             denuncia?.status?.abertura?.data ? format(new Date(denuncia?.status?.abertura?.data), "dd/MM/yyyy 'às' hh:mm"): ''
         )
