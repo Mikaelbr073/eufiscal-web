@@ -63,9 +63,7 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <Container>
       <Logo>
-        <Link href="/">
-          <Image alt='EuFiscal logo' src={LogoEuFiscal} />
-        </Link>
+        <Image alt='EuFiscal logo' src={LogoEuFiscal} />
       </Logo>
       {menuShow && (
         <MenuMobile>

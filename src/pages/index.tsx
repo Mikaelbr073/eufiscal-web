@@ -24,6 +24,8 @@ import ScrollHorizontal from '../components/ScrollHorizontal'
 import CardDenuncia from '../components/CardDenuncia'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { AuthContext } from '../context/auth.provider'
+import {useContext} from 'react'
 
 type DenunciasProps = {
   denuncias: Denuncia[]
@@ -41,12 +43,38 @@ const Index: NextPage<DenunciasProps> = ({
 }) => {
   
   const router = useRouter()
+  
+  const { isAuthenticated, usuario, signOut } = useContext(AuthContext);
 
   return (
     <ContainerIndex>
       <div className='header'>
         <div className="header__logo">
-            <Image alt='EuFiscal logo' src={Logo} />
+              <Link
+                href="/"
+              >
+                <Image alt='EuFiscal logo' src={Logo} />
+              </Link>
+        </div>
+        <div>
+        {(props.isAuthorization) ? (
+            <button
+              onClick={() => signOut()}
+              onChange={signOut}
+              className='header__button'
+            >
+              sair
+            </button>
+          ) : (
+            
+              <Link
+                href="/login"
+                className='header__button header__button--signin'
+              >
+                entrar
+              </Link>
+            
+          )}
         </div>
       </div>
       <div className='container-section-hero'>

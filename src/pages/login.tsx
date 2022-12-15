@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Container, ContainerLogin } from './styles'
+import { Container, ContainerIndex, ContainerLogin, ContainerSignIn } from './styles'
 import Logo from '../../public/LOREMIPSUM.svg'
 import Mark from '../../public/mark.svg'
 import React, { useState, useContext, useEffect, useLayoutEffect } from 'react'
@@ -16,6 +16,7 @@ import authorizarion from '../utils/authorizarion'
 import { AuthContext } from '../context/auth.provider'
 import { parseCookies } from 'nookies'
 import { Router, useRouter } from 'next/router'
+import Link from 'next/link'
 
 type DenunciasProps = {
     denuncias: Denuncia[]
@@ -30,7 +31,7 @@ const Denuncias: NextPage<DenunciasProps> = ({
     status, ...props
 }) => {
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn, signOut } = useContext(AuthContext);
     const router = useRouter()
 
     const [email, setEmail] = useState("");
@@ -38,32 +39,61 @@ const Denuncias: NextPage<DenunciasProps> = ({
 
 
     return (
-        <ContainerLogin>
-            <div className='login__container'>
-                <h2>Entra na conta</h2>
-                <input value={email} onChange={(evt) => setEmail(evt.target.value)} placeholder='Email' type="text" />
-                <input value={senha} onChange={(evt) => setSenha(evt.target.value)} placeholder='Senha' type="password" />
-                <button onClick={async () => {
-
-                    try {
-                      const resultado = await signIn({
-                        email, senha
-                      })
-
-                      if (resultado) {
-                          setEmail("")
-                          setSenha("")
-                          router.push('/denuncias')
-                          
-                      } else {
-                          alert("Emsssail ou senha errada")
-                      }
-                    } catch (error) {
-                      alert(error.message)
-                    }
-                }}>fazer login</button>
+        <ContainerSignIn>
+          <div className='header'>
+            <div className="header__logo">
+                  <Link
+                    href="/"
+                  >
+                    <Image alt='EuFiscal logo' src={Logo} />
+                  </Link>
             </div>
-        </ContainerLogin>
+            <div>
+            {(props.isAuthorization) ? (
+                <button
+                  onClick={() => signOut()}
+                  onChange={signOut}
+                  className='header__button'
+                >
+                  sair
+                </button>
+              ) : (
+                
+                  <Link
+                    href="/login"
+                    className='header__button header__button--signin'
+                  >
+                    entrar
+                  </Link>
+                
+              )}
+            </div>
+          </div>
+          <div className='login__container'>
+              <h2>Entra na conta</h2>
+              <input value={email} onChange={(evt) => setEmail(evt.target.value)} placeholder='Email' type="text" />
+              <input value={senha} onChange={(evt) => setSenha(evt.target.value)} placeholder='Senha' type="password" />
+              <button onClick={async () => {
+
+                  try {
+                    const resultado = await signIn({
+                      email, senha
+                    })
+
+                    if (resultado) {
+                        setEmail("")
+                        setSenha("")
+                        router.push('/denuncias')
+                        
+                    } else {
+                        alert("Emsssail ou senha errada")
+                    }
+                  } catch (error) {
+                    alert(error.message)
+                  }
+              }}>fazer login</button>
+          </div>
+        </ContainerSignIn>
     )
 }
 
